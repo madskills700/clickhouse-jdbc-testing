@@ -1,0 +1,26 @@
+server:
+  servlet:
+    context-path: /ch/madskills/jdbc-testing
+  port: 8084
+spring:
+  application:
+    name: jdbc-testing
+  profiles:
+    active: local
+  datasource:
+    driver-class-name: com.clickhouse.jdbc.ClickHouseDriver
+    username: default
+    password:
+    url: jdbc:clickhouse://127.0.0.1:8123/default
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, loggers, prometheus
+  endpoint:
+    loggers:
+      enabled: true
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
